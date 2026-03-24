@@ -1,5 +1,5 @@
-# taller1P2
-evaluación de conocimientos hasta el corte 2
+# Taller1P2
+Evaluación de conocimientos hasta el corte 2
 # 🏥 Sistema de Gestión Hospitalaria (SGH)
 
 &gt; **Asignatura:** Programación Orientada a Objetos  
@@ -49,7 +49,22 @@ Un hospital necesita digitalizar su sistema de gestión. El sistema debe permiti
 
 | ID | Historia | Prioridad | Story Points |
 |:---|:---|:---:|:---:|
-| **HU-01** | Como **recepcionista**, quiero registrar pacientes para mantener un historial médico digital | Alta | 5 |
+| **HU-01** | Como **recepcionista**, quiero registrar pacientes para crear su expediente digital. | Alta | 5 |
+| **HU-02** | Como **recepcionista**, quiero anotar alergias para alertar al médico. | Alta | 3 |
+| **HU-03** | Como **recepcionista**, quiero agendar citas para organizar la atención. | Alta | 8 |
+| **HU-04** | Como **recepcionista**, quiero cancelar citas para liberar la agenda médica. | Media | 3 |
+| **HU-05** | Como **administrador**, quiero registrar empleados para gestionar la plantilla. | Alta | 5 |
+| **HU-06** | Como **administrador**, quiero calcular la nómina para controlar el presupuesto. | Alta | 5 |
+| **HU-07** | Como **administrador**, quiero definir especialidades y costos para automatizar cobros. | Alta | 3 |
+| **HU-08** | Como **administrador**, quiero asignar turnos a enfermeros para asegurar cobertura. | Media | 3 |
+| **HU-09** | Como **médico**, quiero registrar diagnósticos y recetas para completar la atención. | Alta | 8 |
+| **HU-10** | Como **médico**, quiero ver el historial del paciente para tomar mejores decisiones. | Alta | 5 |
+| **HU-11** | Como **médico**, quiero cálculo automático de consulta para evitar trabajo manual. | Media | 3 |
+| **HU-12** | Como **cirujano**, quiero registrar cirugías para calcular mis bonos. | Media | 5 |
+| **HU-13** | Como **cirujano**, quiero indicar disponibilidad de emergencia para ser contactado. | Media | 2 |
+| **HU-14** | Como **enfermero**, quiero registrar mis asistencias para documentar mi labor. | Baja | 2 |
+| **HU-15** | Como **enfermero**, quiero ver mis pacientes asignados para organizar mi turno. | Media | 3 |
+| **HU-16** | Como **paciente**, quiero ver mi historial para conocer mis diagnósticos. | Media | 5 |
 
 
 ---
@@ -133,7 +148,7 @@ Un hospital necesita digitalizar su sistema de gestión. El sistema debe permiti
 1. **Código fuente Java** organizado en la estructura de paquetes indicada
 2. **Diagrama de Casos de Uso** (formato: imagen PNG/JPG o archivo .puml)
 3. **Diagrama de Clases** (formato: imagen PNG/JPG o archivo .puml)
-4. **Historias de Usuario** documentadas en formato tabla (puede incluirse en este README)
+4. **Historias de Usuario** documentadas en formato tabla (puede incluirse en este README) === Hecho en este README.
 
 ### Opcionales
 - Documentación JavaDoc en clases públicas
@@ -176,13 +191,13 @@ Antes de entregar, verifica:
 
 - [Documentación oficial de Java](https://docs.oracle.com/en/java/)
 - [PlantUML Guide](https://plantuml.com/)
-- Apuntes de clase y material del curso
+- [Apuntes de clase y material del curso](https://java-learn-test.netlify.app/)
 
 ---
 
 ## 🚀 Instrucciones de Entrega
 
-1. Crea un repositorio privado en GitHub
+1. Crea un repositorio privado en GitHub haciendo fork al actual 
 2. Sube el código en la estructura de carpetas indicada
 3. Incluye los diagramas en una carpeta `/docs`
 4. Agrega este README.md completo
