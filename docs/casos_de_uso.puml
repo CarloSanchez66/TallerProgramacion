@@ -1,0 +1,67 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Recepcionista" as recepcionista
+actor "Administrador" as admin
+actor "Médico" as medico
+actor "Cirujano" as cirujano
+actor "Enfermero" as enfermero
+actor "Paciente" as paciente
+
+cirujano -up-|> medico : hereda de
+
+rectangle "Sistema de Gestión Hospitalaria (SGH)" {
+  
+  ' Recepcionista
+  usecase "Registrar pacientes" as HU01
+  usecase "Anotar alergias" as HU02
+  usecase "Agendar citas" as HU03
+  usecase "Cancelar citas" as HU04
+
+  ' Administrador
+  usecase "Registrar empleados" as HU05
+  usecase "Calcular nómina" as HU06
+  usecase "Definir especialidades y costos" as HU07
+  usecase "Asignar turnos a enfermeros" as HU08
+
+  ' Médico
+  usecase "Registrar diagnósticos y recetas" as HU09
+  usecase "Ver historial del paciente" as HU10
+  usecase "Cálculo automático de consulta" as HU11
+
+  ' Cirujano
+  usecase "Registrar cirugías" as HU12
+  usecase "Indicar disponibilidad de emergencia" as HU13
+
+  ' Enfermero
+  usecase "Registrar asistencias en cirugía" as HU14
+  usecase "Ver pacientes asignados" as HU15
+
+  ' Paciente
+  usecase "Ver historial de citas y diagnósticos" as HU16
+}
+
+recepcionista --> HU01
+recepcionista --> HU02
+recepcionista --> HU03
+recepcionista --> HU04
+
+admin --> HU05
+admin --> HU06
+admin --> HU07
+admin --> HU08
+
+medico --> HU09
+medico --> HU10
+medico --> HU11
+
+cirujano --> HU12
+cirujano --> HU13
+
+enfermero --> HU14
+enfermero --> HU15
+
+paciente --> HU16
+
+@enduml

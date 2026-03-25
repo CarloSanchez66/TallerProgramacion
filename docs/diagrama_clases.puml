@@ -1,0 +1,128 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+abstract class Persona {
+  - id: String
+  - nombre: String
+  - apellido: String
+  - fechaNacimiento: LocalDate
+  - email: String
+  + calcularEdad(): int
+  + obtenerTipo(): String
+}
+
+abstract class Empleado {
+  - legajo: String
+  - fechaContratacion: LocalDate
+  - salarioBase: double
+  - activo: boolean
+  + calcularSalario(): double
+  + antiguedad(): int
+}
+Persona <|-- Empleado
+
+class Paciente {
+  - historiaClinicaId: String
+  - grupoSanguineo: String
+  - alergias: List<String>
+  + agregarAlergia(alergia: String)
+  + obtenerHistorial(): List<CitaMedica>
+  + agregarCita(cita: CitaMedica)
+}
+Persona <|-- Paciente
+
+class Medico {
+  - numeroLicencia: String
+  - citasAtendidas: int
+  + atenderPaciente(paciente: Paciente)
+}
+Empleado <|-- Medico
+
+class Cirujano {
+  - cirugiasRealizadas: int
+  - disponibleEmergencias: boolean
+  + realizarCirugia()
+  + calcularBono(): double
+}
+Medico <|-- Cirujano
+
+class Enfermero {
+  - areaAsignada: String
+  + asistirCirugia()
+  + agregarPaciente(paciente: Paciente)
+}
+Empleado <|-- Enfermero
+
+enum Turno {
+  MANANA
+  TARDE
+  NOCHE
+}
+Enfermero o-- Turno : turno
+
+enum EstadoCita {
+  PENDIENTE
+  CONFIRMADA
+  EN_ATENCION
+  COMPLETADA
+  CANCELADA
+}
+
+class CitaMedica {
+  - id: String
+  - fechaHora: LocalDateTime
+  - motivo: String
+  - costo: double
+  + calcularCosto(): double
+  + completar(diagnostico: Diagnostico)
+  + cancelar()
+}
+CitaMedica o-- EstadoCita : estado
+
+class Diagnostico {
+  - id: String
+  - descripcion: String
+  - receta: String
+  - fecha: LocalDate
+}
+
+class Especialidad {
+  - codigo: String
+  - nombre: String
+  - descripcion: String
+  - costoConsulta: double
+}
+Medico o-- Especialidad : especialidad
+
+class Hospital {
+  - nombre: String
+  - direccion: String
+  + contratarEmpleado(empleado: Empleado)
+  + registrarPaciente(paciente: Paciente)
+  + agendarCita(cita: CitaMedica)
+  + calcularNominaTotal(): double
+}
+
+' Composiciones principales del Hospital
+Hospital "1" *-- "*" Empleado : empleados
+Hospital "1" *-- "*" Paciente : pacientes
+Hospital "1" *-- "*" CitaMedica : citas
+
+' Multiplicidades y relaciones entre entidades
+Paciente "1" o-- "*" CitaMedica : citas
+Medico "1" o-- "*" Paciente : pacientesAsignados
+Enfermero "1" o-- "*" Paciente : pacientesACargo
+
+CitaMedica "*" --> "1" Paciente : paciente
+CitaMedica "*" --> "1" Medico : medico
+CitaMedica "1" *-- "0..1" Diagnostico : diagnostico
+
+Diagnostico "*" --> "1" Medico : medico
+
+@enduml
